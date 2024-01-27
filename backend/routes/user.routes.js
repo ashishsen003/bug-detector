@@ -32,6 +32,7 @@ userRouter.post('/register', async(req, res)=>{
 userRouter.post('/login', async(req, res)=>{
     const {email, password} = req.body
     try {
+        console.log('try');
         const user = await UserModel.findOne({email})
         if(user){
             bcrypt.compare(password, user.password, (err, result)=>{
@@ -46,7 +47,8 @@ userRouter.post('/login', async(req, res)=>{
             res.status(200).send('User is not registered')
         }
     } catch (error) {
-        res.status(400).send({error: error})
+        console.log('catch');
+        res.status(400).send(error)
     }
 })
 

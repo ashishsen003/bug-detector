@@ -14,3 +14,9 @@ const userSchema = mongoose.Schema({
 const BugModel = mongoose.model('bug', userSchema)
 
 module.exports={BugModel}
+
+// "title": "First bug",
+// "description": "bug found in system",
+// "source": "https://i.pravatar.cc/300",
+// "severity": "Major",
+// "raised_by": 

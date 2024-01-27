@@ -41,6 +41,7 @@ bugRouter.patch('/:id', auth, async(req, res)=>{
     try {
         const bug = await BugModel.findById({_id: id})
         if(req.body.userId == bug.userId){
+            console.log(req.body.userId, bug.userId);
             await BugModel.findByIdAndUpdate({_id: id}, req.body)
             res.status(200).send('Reported bug updated')
         } else {
@@ -51,11 +52,14 @@ bugRouter.patch('/:id', auth, async(req, res)=>{
     }
 })
 
-bugRouter.delete('/:id', async(req, res)=>{
+bugRouter.delete('/:id', auth, async(req, res)=>{
     const {id} = req.params
+    console.log(id);
     try {
         const bug = await BugModel.findById({_id: id})
+        console.log(bug);
         if(req.body.userId == bug.userId){
+            console.log(req.body.userId, bug.userId);
             await BugModel.findByIdAndDelete({_id: id})
             res.status(200).send('Reported bug deleted')
         } else {

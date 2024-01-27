@@ -11,3 +11,8 @@ const userSchema = mongoose.Schema({
 const UserModel = mongoose.model('user', userSchema)
 
 module.exports={UserModel}
+
+// "name": "Niswarth",
+// "avatar": "https://i.pravatar.cc/300",
+// "email": "niswarth@gmail.com",
+// "password": "niswarth@321"
